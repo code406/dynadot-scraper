@@ -1,4 +1,4 @@
-# Dynadot Domain Search Tool
+# Dynadot Scraper (domain search tool)
 
 A simple Python scraper to **find available domain extensions for a given domain name**.
 It uses Selenium to interact with the Dynadot search page and
@@ -14,7 +14,7 @@ The script will click the 'View More Extensions' button repeatedly to load all t
 which may take a couple minutes. Once it's done, the available domains will be printed out
 (or written to a JSON file, if specified).
 
-#### Arguments
+### Arguments
 
 Only the "-n" ("--name") argument is required, but here are all the possible arguments
 the script can take:
