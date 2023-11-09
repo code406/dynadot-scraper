@@ -57,7 +57,6 @@ while retries > 0:
     try:
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "see-more-group"))).click()
     except (TimeoutException, NoSuchElementException, StaleElementReferenceException):
-        logging.info("That's it? Will retry in 5 seconds, just in case...")
         sleep(5)
         retries -= 1
 
