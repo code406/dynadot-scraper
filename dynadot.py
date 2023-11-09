@@ -52,14 +52,14 @@ except TimeoutException:
 
 # Wait for the "view-more-button" element to be visible. While it's visible, click it
 logging.info('Clicking the "view-more-button" button until all domains are loaded...')
-attempts_left = 2
-while attempts_left > 0:
+retries = 2
+while retries > 0:
     try:
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "see-more-group"))).click()
     except (TimeoutException, NoSuchElementException, StaleElementReferenceException):
         logging.info("That's it? Will retry in 5 seconds, just in case...")
         sleep(5)
-        attempts_left -= 1
+        retries -= 1
 
         # Check if search quota exceeded (class "domain-search-result-error" is visible)
         if driver.find_element(By.CLASS_NAME, "domain-search-result-error").is_displayed():
